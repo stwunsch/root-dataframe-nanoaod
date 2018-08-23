@@ -1,0 +1,13 @@
+CMSSW_5_3_32/
+*.swp
+*.swo
+*.pyc
+__init__.py
+OUT
+*.pdf
+*.out
+*.d
+*.so
+*.pcm
+*.root
+nanoaod_dimuon_spectrum
