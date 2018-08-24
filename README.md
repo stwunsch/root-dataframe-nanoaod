@@ -4,6 +4,10 @@ This project takes AOD files from CMS OpenData and rewrites these in a structure
 
 ![Di-Muon spectrum](dimuon_spectrum.png)
 
+Compare with the published CMS plot produced in 2011 ([Link](https://twiki.cern.ch/twiki/pub/CMSPublic/PhysicsResultsMUO/dimuonSpectrum_40pb-1.pdf)):
+
+![Published Di-Muon spectrum](published_dimuon_spectrum.png)
+
 ## Setup CMSSW
 
 ```bash
