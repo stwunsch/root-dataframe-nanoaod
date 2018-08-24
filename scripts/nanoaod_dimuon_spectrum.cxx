@@ -29,7 +29,7 @@ void invariant_dimuon_mass() {
   ROOT::EnableImplicitMT();
 
   // Create dataframe from NanoAOD file
-  ROOT::RDataFrame df("Events", "NanoAOD_Example_CMS2011OpenData.root");
+  ROOT::RDataFrame df("Events", "http://root.cern.ch/files/NanoAOD_Example_CMS2011OpenData.root");
 
   // Baseline selection of more than two muons
   auto df_filtered = df.Filter("nMuon>=2", "More than two muons");

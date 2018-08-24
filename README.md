@@ -44,6 +44,7 @@ root -l -q postprocess_nanoaod.C
 
 ```bash
 # NOTE: Source recent ROOT version with RDataFrame support
+# NOTE: The commited version of the program reads the file remotely from root.cern.ch.
 ./build.sh
 ./nanoaod_dimuon_spectrum
 ```
