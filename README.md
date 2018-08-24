@@ -19,6 +19,7 @@ cmsrel CMSSW_5_3_32
 
 ```bash
 cd CMSSW_5_3_32/src
+cmsenv
 mkdir workspace
 cd workspace
 git clone <THIS REPOSITORY> aod2nanoaod
@@ -35,6 +36,7 @@ cmsRun aod2nanoaod_cfg.py 2> log.txt
 ## Postprocess ROOT file
 
 ```bash
+cd scripts/
 root -l -q postprocess_nanoaod.C
 ```
 
