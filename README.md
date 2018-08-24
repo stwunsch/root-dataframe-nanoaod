@@ -1,6 +1,6 @@
 # Example of processing NanoAOD files with RDataFrame
 
-This project takes AOD files from CMS OpenData and rewrites these in a structure similar to the NanoAOD format. The processed data is published on the CERN OpenData platform and contains data events taken with the CMS detector at the LHC during 2011. The output of the full toolchain described below results in the following plot of the Di-Muon spectrum.
+This project takes AOD files from CMS OpenData and rewrites these in a structure similar to the NanoAOD format ([see here for documentation](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookNanoAOD)). The processed data is published on the CERN OpenData platform and contains data events taken with the CMS detector at the LHC during 2011. The output of the full toolchain described below results in the following plot of the Di-Muon spectrum.
 
 ![Di-Muon spectrum](dimuon_spectrum.png)
 
