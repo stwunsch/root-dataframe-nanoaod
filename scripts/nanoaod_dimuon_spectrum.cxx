@@ -24,7 +24,7 @@ using namespace ROOT::VecOps;
 
 template <typename T> void Draw(T h_result_ptr);
 
-void invariant_dimuon_mass() {
+void nanoaod_dimuon_spectrum() {
   // Enable implicit multi-threading
   ROOT::EnableImplicitMT();
 
@@ -82,7 +82,7 @@ void invariant_dimuon_mass() {
   Draw(h);
 }
 
-int main() { invariant_dimuon_mass(); }
+int main() { nanoaod_dimuon_spectrum(); }
 
 template <typename T> void Draw(T h_result_ptr) {
   gStyle->SetOptStat(0);
