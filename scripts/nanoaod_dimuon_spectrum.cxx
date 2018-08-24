@@ -29,19 +29,21 @@ void nanoaod_dimuon_spectrum() {
   ROOT::EnableImplicitMT();
 
   // Create dataframe from NanoAOD file
-  ROOT::RDataFrame df("Events", "http://root.cern.ch/files/NanoAOD_Example_CMS2011OpenData.root");
+  ROOT::RDataFrame df(
+      "Events",
+      "http://root.cern.ch/files/NanoAOD_Example_CMS2011OpenData.root");
 
   // Baseline selection of more than two muons
   auto df_filtered = df.Filter("nMuon>=2", "More than two muons");
 
   // Fin muon pair with highest pt and opposite charge
-  auto find_pair = [](RVec<double> &pt, RVec<double> &charge) {
+  auto find_pair = [](const RVec<double> &pt, const RVec<double> &charge) {
     // Get indices that sort the muon pts in descending order
-    auto idx = Reversed(Argsort(pt));
+    const auto idx = Reversed(Argsort(pt));
 
     // Find muon with second-highest pt and opposite charge
+    const auto i1 = idx[0];
     for (size_t i = 1; i < idx.size(); i++) {
-      const auto i1 = idx[0];
       const auto i2 = idx[i];
       if (charge[i1] != charge[i2]) {
         return RVec<size_t>({i1, i2});
@@ -56,8 +58,9 @@ void nanoaod_dimuon_spectrum() {
           .Filter("Muon_pair.size() == 2", "Found valid pair");
 
   // Compute invariant mass of the di-muon system
-  auto compute_mass = [](RVec<double> &pt, RVec<double> &eta, RVec<double> &phi,
-                         RVec<double> &mass, RVec<size_t> &idx) {
+  auto compute_mass = [](const RVec<double> &pt, const RVec<double> &eta,
+                         const RVec<double> &phi, const RVec<double> &mass,
+                         const RVec<size_t> &idx) {
     // Compose four-vectors of both muons
     TLorentzVector p1;
     const auto i1 = idx[0];
