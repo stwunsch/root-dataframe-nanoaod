@@ -17,7 +17,7 @@ process.maxEvents = cms.untracked.PSet(input=cms.untracked.int32(-1))
 # Define files of dataset
 import FWCore.Utilities.FileUtils as FileUtils
 files2011data = FileUtils.loadListFromFile(
-    'datasets/CMS_Run2011A_DoubleMu_AOD_12Oct2013-v1_10000_file_index.txt')
+    'datasets/CMS_Run2011A_DoubleMu_AOD_12Oct2013-v1_merged.txt')
 process.source = cms.Source(
     "PoolSource", fileNames=cms.untracked.vstring(*files2011data))
 

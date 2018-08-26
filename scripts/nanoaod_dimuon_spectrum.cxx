@@ -104,13 +104,13 @@ template <typename T> void Draw(T h_result_ptr) {
   TLatex label;
   label.DrawLatex(0.50, 7.000, "#bf{CMS Open Data}");
   label.DrawLatex(0.50, 2.000, "#bf{#sqrt{s} = 7 TeV}");
-  label.DrawLatex(0.50, 2.5e4, "#eta");
-  label.DrawLatex(0.65, 5.0e4, "#rho,#omega");
+  label.DrawLatex(0.50, 2.7e4, "#eta");
+  label.DrawLatex(0.65, 6.0e4, "#rho,#omega");
   label.DrawLatex(1.15, 3.0e4, "#phi");
-  label.DrawLatex(3.50, 8.0e4, "J/#psi");
-  label.DrawLatex(4.00, 7.0e3, "#psi'");
-  label.DrawLatex(8.00, 3.0e4, "Y(1,2,3S)");
-  label.DrawLatex(84.0, 3.0e3, "Z");
+  label.DrawLatex(3.50, 1.0e5, "J/#psi");
+  label.DrawLatex(4.00, 9.0e3, "#psi'");
+  label.DrawLatex(8.00, 3.6e4, "Y(1,2,3S)");
+  label.DrawLatex(84.0, 3.1e3, "Z");
 
   c.SaveAs("nanoaod_dimuon_spectrum.pdf");
 }
