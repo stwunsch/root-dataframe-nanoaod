@@ -102,8 +102,10 @@ template <typename T> void Draw(T h_result_ptr) {
   h.Draw();
 
   TLatex label;
-  label.DrawLatex(0.50, 7.000, "#bf{CMS Open Data}");
-  label.DrawLatex(0.50, 2.000, "#bf{#sqrt{s} = 7 TeV}");
+  label.SetNDC(true);
+  label.DrawLatex(0.17, 0.275, "#bf{CMS Open Data}");
+  label.DrawLatex(0.17, 0.200, "#bf{#sqrt{s} = 7 TeV}");
+  label.SetNDC(false);
   label.DrawLatex(0.50, 2.7e4, "#eta");
   label.DrawLatex(0.65, 6.0e4, "#rho,#omega");
   label.DrawLatex(1.15, 3.0e4, "#phi");
