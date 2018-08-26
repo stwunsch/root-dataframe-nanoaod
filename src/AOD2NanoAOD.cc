@@ -53,11 +53,11 @@ private:
   TBranch *branch_mu_charge;
   TBranch *branch_mu_n;
   int value_mu_n;
-  std::vector<double> value_mu_pt;
-  std::vector<double> value_mu_eta;
-  std::vector<double> value_mu_phi;
-  std::vector<double> value_mu_mass;
-  std::vector<double> value_mu_charge;
+  std::vector<float> value_mu_pt;
+  std::vector<float> value_mu_eta;
+  std::vector<float> value_mu_phi;
+  std::vector<float> value_mu_mass;
+  std::vector<int> value_mu_charge;
 };
 
 AOD2NanoAOD::AOD2NanoAOD(const edm::ParameterSet &iConfig) {

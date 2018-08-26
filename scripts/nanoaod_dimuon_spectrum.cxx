@@ -37,7 +37,7 @@ void nanoaod_dimuon_spectrum() {
   auto df_filtered = df.Filter("nMuon>=2", "More than two muons");
 
   // Fin muon pair with highest pt and opposite charge
-  auto find_pair = [](const RVec<double> &pt, const RVec<double> &charge) {
+  auto find_pair = [](const RVec<float> &pt, const RVec<int> &charge) {
     // Get indices that sort the muon pts in descending order
     const auto idx = Reversed(Argsort(pt));
 
@@ -58,9 +58,8 @@ void nanoaod_dimuon_spectrum() {
           .Filter("Muon_pair.size() == 2", "Found valid pair");
 
   // Compute invariant mass of the di-muon system
-  auto compute_mass = [](const RVec<double> &pt, const RVec<double> &eta,
-                         const RVec<double> &phi, const RVec<double> &mass,
-                         const RVec<size_t> &idx) {
+  auto compute_mass = [](RVec<float> &pt, RVec<float> &eta, RVec<float> &phi,
+                         RVec<float> &mass, RVec<size_t> &idx) {
     // Compose four-vectors of both muons
     TLorentzVector p1;
     const auto i1 = idx[0];
@@ -104,14 +103,14 @@ template <typename T> void Draw(T h_result_ptr) {
 
   TLatex label;
   label.DrawLatex(0.50, 7.000, "#bf{CMS Open Data}");
-  label.DrawLatex(0.50, 2.500, "#bf{#sqrt{s} = 7 TeV}");
-  label.DrawLatex(0.50, 9.0e3, "#eta");
-  label.DrawLatex(0.65, 2.0e4, "#rho,#omega");
-  label.DrawLatex(1.15, 1.0e4, "#phi");
-  label.DrawLatex(3.50, 2.0e4, "J/#psi");
-  label.DrawLatex(4.00, 3.0e3, "#psi'");
-  label.DrawLatex(8.00, 1.2e4, "Y(1,2,3S)");
-  label.DrawLatex(84.0, 1.0e3, "Z");
+  label.DrawLatex(0.50, 2.000, "#bf{#sqrt{s} = 7 TeV}");
+  label.DrawLatex(0.50, 2.5e4, "#eta");
+  label.DrawLatex(0.65, 5.0e4, "#rho,#omega");
+  label.DrawLatex(1.15, 3.0e4, "#phi");
+  label.DrawLatex(3.50, 8.0e4, "J/#psi");
+  label.DrawLatex(4.00, 7.0e3, "#psi'");
+  label.DrawLatex(8.00, 3.0e4, "Y(1,2,3S)");
+  label.DrawLatex(84.0, 3.0e3, "Z");
 
   c.SaveAs("nanoaod_dimuon_spectrum.pdf");
 }
