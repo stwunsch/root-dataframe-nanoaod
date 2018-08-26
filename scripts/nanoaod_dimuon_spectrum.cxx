@@ -96,16 +96,12 @@ template <typename T> void Draw(T h_result_ptr) {
   auto h = h_result_ptr.GetValue();
   h.SetTitle("");
   h.GetXaxis()->SetTitle("Invariant Di-Muon mass (GeV)");
-  h.GetXaxis()->SetTitleOffset(1.2);
-  ;
+  h.GetXaxis()->SetTitleSize(0.04);;
   h.GetYaxis()->SetTitle("N_{events}");
+  h.GetYaxis()->SetTitleSize(0.04);;
   h.Draw();
 
   TLatex label;
-  label.SetNDC(true);
-  label.DrawLatex(0.17, 0.275, "#bf{CMS Open Data}");
-  label.DrawLatex(0.17, 0.200, "#bf{#sqrt{s} = 7 TeV}");
-  label.SetNDC(false);
   label.DrawLatex(0.50, 2.7e4, "#eta");
   label.DrawLatex(0.65, 6.0e4, "#rho,#omega");
   label.DrawLatex(1.15, 3.0e4, "#phi");
@@ -113,6 +109,13 @@ template <typename T> void Draw(T h_result_ptr) {
   label.DrawLatex(4.00, 9.0e3, "#psi'");
   label.DrawLatex(8.00, 3.6e4, "Y(1,2,3S)");
   label.DrawLatex(84.0, 3.1e3, "Z");
+
+  label.SetNDC(true);
+  label.DrawLatex(0.17, 0.350, "#bf{CMS Open Data}");
+  label.DrawLatex(0.17, 0.275, "#bf{#sqrt{s} = 7 TeV}");
+  label.DrawLatex(0.17, 0.200, "#bf{L_{int} = 2.31 fb^{-1}}");
+  label.SetTextSize(0.04);
+  label.DrawLatex(0.10, 0.920, "Run2011A (DOI: 10.7483/OPENDATA.CMS.RZ34.QR6N)");
 
   c.SaveAs("nanoaod_dimuon_spectrum.pdf");
 }
