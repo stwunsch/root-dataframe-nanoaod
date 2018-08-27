@@ -3,8 +3,8 @@
 /// \notebook -nodraw
 /// This tutorial illustrates how NanoAOD files can be processed with ROOT
 /// dataframes. The NanoAOD-like input file is filled with events from
-/// CMS OpenData containing Muon candidates from 2011 data. The script matches
-/// Muon pairs and produces an histogram of the Di-Muon mass spectrum showing
+/// CMS OpenData containing muon candidates from 2011 data. The script matches
+/// muon pairs and produces an histogram of the dimuon mass spectrum showing
 /// particle resonances up to the Z mass.
 ///
 /// \macro_code
@@ -95,10 +95,12 @@ template <typename T> void Draw(T h_result_ptr) {
 
   auto h = h_result_ptr.GetValue();
   h.SetTitle("");
-  h.GetXaxis()->SetTitle("Invariant Di-Muon mass (GeV)");
-  h.GetXaxis()->SetTitleSize(0.04);;
-  h.GetYaxis()->SetTitle("N_{events}");
-  h.GetYaxis()->SetTitleSize(0.04);;
+  h.GetXaxis()->SetTitle("Invariant di-muon mass (GeV)");
+  h.GetXaxis()->SetTitleSize(0.04);
+  ;
+  h.GetYaxis()->SetTitle("N_{Events}");
+  h.GetYaxis()->SetTitleSize(0.04);
+  ;
   h.Draw();
 
   TLatex label;
@@ -114,8 +116,9 @@ template <typename T> void Draw(T h_result_ptr) {
   label.DrawLatex(0.17, 0.350, "#bf{CMS Open Data}");
   label.DrawLatex(0.17, 0.275, "#bf{#sqrt{s} = 7 TeV}");
   label.DrawLatex(0.17, 0.200, "#bf{L_{int} = 2.31 fb^{-1}}");
-  label.SetTextSize(0.04);
-  label.DrawLatex(0.10, 0.920, "Run2011A (DOI: 10.7483/OPENDATA.CMS.RZ34.QR6N)");
+  label.SetTextSize(0.032);
+  label.DrawLatex(0.10, 0.920,
+      "Run2011A Double Muon Dataset (DOI: 10.7483/OPENDATA.CMS.RZ34.QR6N)");
 
   c.SaveAs("nanoaod_dimuon_spectrum.pdf");
 }
