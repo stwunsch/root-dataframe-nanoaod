@@ -33,10 +33,10 @@ void nanoaod_dimuon_spectrum() {
       "Events",
       "http://root.cern.ch/files/NanoAOD_DoubleMuon_CMS2011OpenData.root");
 
-  // Baseline selection of more than two muons
+  // Select events with more than two muons
   auto df_filtered = df.Filter("nMuon>=2", "More than two muons");
 
-  // Fin muon pair with highest pt and opposite charge
+  // Find muon pair with highest pt and opposite charge
   auto find_pair = [](const RVec<float> &pt, const RVec<int> &charge) {
     // Get indices that sort the muon pts in descending order
     const auto idx = Reversed(Argsort(pt));
