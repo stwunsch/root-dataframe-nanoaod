@@ -31,7 +31,7 @@ void nanoaod_dimuon_spectrum() {
   // Create dataframe from NanoAOD file
   ROOT::RDataFrame df(
       "Events",
-      "http://root.cern.ch/files/NanoAOD_Example_CMS2011OpenData.root");
+      "http://root.cern.ch/files/NanoAOD_DoubleMuon_CMS2011OpenData.root");
 
   // Baseline selection of more than two muons
   auto df_filtered = df.Filter("nMuon>=2", "More than two muons");
