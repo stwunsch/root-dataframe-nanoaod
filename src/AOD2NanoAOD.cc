@@ -52,7 +52,13 @@ private:
   TBranch *branch_mu_mass;
   TBranch *branch_mu_charge;
   TBranch *branch_mu_n;
-  int value_mu_n;
+  TBranch *branch_run;
+  TBranch *branch_lumi_block;
+  TBranch *branch_event;
+  Int_t value_run;
+  UInt_t value_lumi_block;
+  UInt_t value_mu_n;
+  ULong64_t value_event;
   std::vector<float> value_mu_pt;
   std::vector<float> value_mu_eta;
   std::vector<float> value_mu_phi;
@@ -70,6 +76,9 @@ AOD2NanoAOD::AOD2NanoAOD(const edm::ParameterSet &iConfig) {
   branch_mu_mass = tree->Branch("Muon_mass", &value_mu_mass);
   branch_mu_charge = tree->Branch("Muon_charge", &value_mu_charge);
   branch_mu_n = tree->Branch("nMuon", &value_mu_n);
+  branch_run = tree->Branch("run", &value_run);
+  branch_lumi_block = tree->Branch("luminosityBlock", &value_lumi_block);
+  branch_event = tree->Branch("event", &value_event);
 }
 
 AOD2NanoAOD::~AOD2NanoAOD() {}
@@ -114,14 +123,18 @@ void AOD2NanoAOD::analyze(const edm::Event &iEvent,
   value_mu_charge.clear();
   value_mu_mass.clear();
   value_mu_n = gmuons->size();
-  for (reco::TrackCollection::const_iterator it = gmuons->begin();
-       it != gmuons->end(); it++) {
+  value_run = iEvent.run();
+  value_lumi_block = iEvent.luminosityBlock();
+  value_event = iEvent.id().event();
+
+  for (reco::TrackCollection::const_iterator it = gmuons->begin(); it != gmuons->end(); it++) {
     value_mu_pt.push_back(it->pt());
     value_mu_eta.push_back(it->eta());
     value_mu_phi.push_back(it->phi());
     value_mu_charge.push_back(it->charge());
     value_mu_mass.push_back(0.105658);
   }
+
   tree->Fill();
 }
 

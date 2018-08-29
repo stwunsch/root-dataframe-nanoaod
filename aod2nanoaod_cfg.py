@@ -22,11 +22,14 @@ process.source = cms.Source(
     "PoolSource", fileNames=cms.untracked.vstring(*files2011data))
 
 # Apply JSON file (needs to be done after the process.source definition)
+# NOTE: Comment in this code if you want to do the lumi masking here.
+"""
 goodJSON = 'datasets/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt'
 myLumis = LumiList.LumiList(filename=goodJSON).getCMSSWString().split(',')
 process.source.lumisToProcess = CfgTypes.untracked(
     CfgTypes.VLuminosityBlockRange())
 process.source.lumisToProcess.extend(myLumis)
+"""
 
 # Number of events to be skipped (0 by default)
 process.source.skipEvents = cms.untracked.uint32(0)
